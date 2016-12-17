@@ -23,5 +23,10 @@
     "css-loader": "^0.25.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "firebase": "^3.4.1",
+    "react": "^15.3.2",
+    "reactfire": "^1.0.0"
   }
 }
