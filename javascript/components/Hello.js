@@ -5,12 +5,12 @@ class Hello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Hello World!'
+      end: '!'
     };
   }
   render() {
     return (
-      <h1>{this.state.text}</h1>
+      <h1>Hello {this.props.name}{this.state.end}</h1>
     );
   }
 }

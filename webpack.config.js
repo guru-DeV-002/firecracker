@@ -1,10 +1,10 @@
 module.exports = {
-  entry: './main.js',
+  entry: './javascript/main.js',
   output: {
     path: './build/',
-    filename: './bundle.js'
+    filename: './main.js'
   },
-  watch: true,
+  // watch: true,
   module: {
     loaders: [
       {
