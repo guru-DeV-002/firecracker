@@ -13,7 +13,7 @@ class Display extends React.Component {
     const processorEffects = processor.effects.map((effect, index) =>
       <div className="effect" key={effect.name}>
         <p>{effect.name}</p>
-        <button></button>
+        <button className={(effect.name[0] === 'D' ? 'active' : '')}></button>
       </div>
     );
     return (
@@ -23,25 +23,23 @@ class Display extends React.Component {
           <p>MILD SOLO</p>
         </div>
         <div className="settings">
-          <div>
+          <div className="prop">
             <p>High</p>
-            <progress max="100" value={this.state.val}></progress>
-            <span>{this.state.val}</span>
-          </div>
-          <div>
-            <p>H Mids</p>
-            <progress max="100" value="65"></progress>
-            <span>65</span>
-          </div>
-          <div>
-            <p>L Mids</p>
-            <progress max="100" value="65"></progress>
-            <span>65</span>
-          </div>
-          <div>
+            <p>High Mids</p>
+            <p>Low Mids</p>
             <p>Low</p>
+          </div>
+          <div className="bar">
+            <progress max="100" value={this.state.val}></progress>
+            <progress max="100" value="65"></progress>
             <progress max="100" value="74"></progress>
-            <span>74</span>
+            <progress max="100" value="81"></progress>
+          </div>
+          <div className="level">
+            <p>{this.state.val}</p>
+            <p>65</p>
+            <p>74</p>
+            <p>81</p>
           </div>
         </div>
         <div className="effect-selector">

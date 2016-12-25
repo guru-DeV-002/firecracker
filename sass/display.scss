@@ -16,8 +16,8 @@
     width: 35%;
     height: 150px;
     color: $primary;
-    background-color: darken($primary-back, 2);
-    text-shadow: 0 0 12px lighten($primary, 5);
+    background-color: darken($primary-back, 2%);
+    text-shadow: 0 0 9px lighten($primary, 5%);
     p {
       font-family: 'Racing Sans One';
       font-size: 24px;
@@ -31,34 +31,48 @@
     height: 150px;
     color: $primary;
     background-color: $primary-back;
-    text-shadow: 0 0 12px lighten($primary, 5);
+    text-shadow: 0 0 9px lighten($primary, 5%);
     vertical-align: bottom;
-    div {
-      padding: 5px 0;
+    & > div {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .prop {
+      width: 30%;
       p {
-        display: inline-block;
-        vertical-align: middle;
+        padding: 5px 0;
       }
+    }
+    .bar {
+      width: 60%;
       progress[value] {
         -webkit-appearance: none;
-        width: 75%;
+        width: 100%;
         padding: 0 10px;
+        margin: 5px 0;
         display: inline-block;
         vertical-align: middle;
         &::-webkit-progress-bar {
-          background-color: transparent;
+          background-color: darken($primary-back, 2%);
         }
         &::-webkit-progress-value {
           background-color: $primary;
-          box-shadow: 0 0 12px lighten($primary, 5);
+          box-shadow: 0 0 9px lighten($primary, 5%);
         }
+      }
+    }
+    .level {
+      width: 10%;
+      p {
+        padding: 5px 0 5px 5px;
       }
     }
   }
   .effect-selector {
     width: 100%;
     padding: 8px 2px 12px 2px;
-    text-align: left;
+    text-align: center;
     .title {
       transform: translateY(11px);
       padding-bottom: 5px;
@@ -67,7 +81,6 @@
         margin: 0 auto;
         padding: 0 8px;
         transform: translateY(-11px);
-        font-family: 'Passion One';
         text-align: center;
         font-size: 18px;
         color: $white;
@@ -93,9 +106,22 @@
         color: $white;
       }
       button {
-        width: 90%;
-        height: 12px;
-        background-color: $primary;
+        width: 80%;
+        height: 14px;
+        margin-top: 5px;
+        border-radius: 2px;
+        background-color: rgba($primary, 0.6);
+        border-bottom: 3px solid darken($primary, 25%);
+        cursor: pointer;
+        &:hover {
+          transform: translateY(3px);
+          height: 11px;
+          border-bottom: 0;
+        }
+        &.active {
+          box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($primary, 20%) 0 0 9px, adjust-hue($primary, 15%) 0 -2px 12px;
+          background-color: $primary;
+        }
       }
     }
   }
