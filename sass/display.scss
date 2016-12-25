@@ -1,0 +1,102 @@
+@import "partials/base";
+@import "partials/palette";
+
+.display {
+  position: relative;
+  display: block;
+  width: 500px;
+  overflow: hidden;
+  background-color: $dark;
+  & > div {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+  }
+  .patch {
+    width: 35%;
+    height: 150px;
+    color: $primary;
+    background-color: darken($primary-back, 2);
+    text-shadow: 0 0 12px lighten($primary, 5);
+    p {
+      font-family: 'Racing Sans One';
+      font-size: 24px;
+    }
+    .code {
+      font-size: 64px;
+    }
+  }
+  .settings {
+    width: 65%;
+    height: 150px;
+    color: $primary;
+    background-color: $primary-back;
+    text-shadow: 0 0 12px lighten($primary, 5);
+    vertical-align: bottom;
+    div {
+      padding: 5px 0;
+      p {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      progress[value] {
+        -webkit-appearance: none;
+        width: 75%;
+        padding: 0 10px;
+        display: inline-block;
+        vertical-align: middle;
+        &::-webkit-progress-bar {
+          background-color: transparent;
+        }
+        &::-webkit-progress-value {
+          background-color: $primary;
+          box-shadow: 0 0 12px lighten($primary, 5);
+        }
+      }
+    }
+  }
+  .effect-selector {
+    width: 100%;
+    padding: 8px 2px 12px 2px;
+    text-align: left;
+    .title {
+      transform: translateY(11px);
+      padding-bottom: 5px;
+      p {
+        display: table;
+        margin: 0 auto;
+        padding: 0 8px;
+        transform: translateY(-11px);
+        font-family: 'Passion One';
+        text-align: center;
+        font-size: 18px;
+        color: $white;
+        background-color: $dark;
+      }
+      .separator {
+        position: relative;
+        display: block;
+        width: 90%;
+        height: 1px;
+        margin: 0 auto;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
+      }
+    }
+    .effect {
+      position: relative;
+      display: inline-block;
+      width: 12%;
+      margin: 0 3px;
+      text-align: center;
+      p {
+        font-family: 'Racing Sans One';
+        color: $white;
+      }
+      button {
+        width: 90%;
+        height: 12px;
+        background-color: $primary;
+      }
+    }
+  }
+}

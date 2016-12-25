@@ -13,9 +13,9 @@ module.exports = {
         loader: 'babel',
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        loader: 'style!css' // CSS -> Style (Right to Left)
+        loader: 'style!css!sass?sourceMap' // SCSS->CSS->Styles (Right to Left)
       }
     ]
   }

@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
-import Hello from './components/Hello';
+import Processor from './containers/Processor';
 
 ReactDOM.render(
-  <Hello name="World"/>,
+  <Processor/>,
   document.getElementById('container')
 );
