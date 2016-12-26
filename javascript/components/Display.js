@@ -5,17 +5,28 @@ require('../../sass/display.scss');
 class Display extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      val: 92
-    };
+    this.state = processor;
+  }
+  handleClick(index, e) {
+    let newEffects = this.state.effects;
+    newEffects[index].active = !newEffects[index].active;
+    this.setState({
+      effects: newEffects
+    });
   }
   render() {
-    const processorEffects = processor.effects.map((effect, index) =>
-      <div className="effect" key={effect.name}>
-        <p>{effect.name}</p>
-        <button className={(effect.name[0] === 'D' ? 'active' : '')}></button>
-      </div>
-    );
+    const processorEffects = this.state.effects.map((effect, index) => {
+      let click = this.handleClick.bind(this, index);
+      return (
+        <div className="effect" key={effect.name}>
+          <p>{effect.name}</p>
+          <button
+            className={(effect.active ? 'active' : '')}
+            onClick={click}>
+          </button>
+        </div>
+      );
+    });
     return (
       <div className="display">
         <div className="patch">
@@ -30,13 +41,13 @@ class Display extends React.Component {
             <p>Low</p>
           </div>
           <div className="bar">
-            <progress max="100" value={this.state.val}></progress>
+            <progress max="100" value="92"></progress>
             <progress max="100" value="65"></progress>
             <progress max="100" value="74"></progress>
             <progress max="100" value="81"></progress>
           </div>
           <div className="level">
-            <p>{this.state.val}</p>
+            <p>92</p>
             <p>65</p>
             <p>74</p>
             <p>81</p>

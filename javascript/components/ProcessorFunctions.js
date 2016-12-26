@@ -1,25 +1,32 @@
 module.exports = {
   effects: [
     {
-      name: 'Drive'
+      name: 'Drive',
+      active: false
     },
     {
-      name: 'Comp.'
+      name: 'Comp.',
+      active: false
     },
     {
-      name: 'EQ'
+      name: 'EQ',
+      active: false
     },
     {
-      name: 'Chorus'
+      name: 'Chorus',
+      active: false
     },
     {
-      name: 'Tremolo'
+      name: 'Tremolo',
+      active: false
     },
     {
-      name: 'Delay'
+      name: 'Delay',
+      active: false
     },
     {
-      name: 'Reverb'
+      name: 'Reverb',
+      active: false
     }
   ]
 };
