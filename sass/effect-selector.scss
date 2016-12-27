@@ -1,0 +1,77 @@
+@import "partials/base";
+@import "partials/palette";
+
+.effect-selector {
+  position: relative;
+  display: block;
+  width: 500px;
+  overflow: hidden;
+  padding: 8px 2px 12px 2px;
+  background-color: $dark;
+  text-align: center;
+  .title {
+    transform: translateY(11px);
+    padding-bottom: 5px;
+    p {
+      display: table;
+      margin: 0 auto;
+      padding: 0 8px;
+      transform: translateY(-11px);
+      text-align: center;
+      font-size: 18px;
+      color: $white;
+      background-color: $dark;
+    }
+    .separator {
+      position: relative;
+      display: block;
+      width: 90%;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
+    }
+  }
+  .effect {
+    position: relative;
+    display: inline-block;
+    width: 12%;
+    margin: 0 3px;
+    text-align: center;
+    p {
+      font-family: 'Racing Sans One';
+      color: $white;
+    }
+    button {
+      width: 80%;
+      height: 16px;
+      margin-top: 5px;
+      border-radius: 3px;
+      background-color: rgba($primary-light, 0.6);
+      border-bottom: 4px solid darken($primary-light, 25%);
+      cursor: pointer;
+      &:hover {
+        transform: translateY(1px);
+        height: 15px;
+        border-bottom-width: 3px;
+      }
+      &.active {
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($primary-light, 20%) 0 0 9px, adjust-hue($primary-light, 15%) 0 -2px 12px;
+        background-color: $primary-light;
+        transform: translateY(4px);
+        height: 12px;
+        border-bottom: 0;
+        .light {
+          opacity: 1;
+        }
+      }
+      .light {
+        width: 90%;
+        height: 2px;
+        margin: 0 auto;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, darken($white, 10%) 50%, rgba(0, 0, 0, 0) 100%);
+        transform: translateY(1px);
+        opacity: 0;
+      }
+    }
+  }
+}

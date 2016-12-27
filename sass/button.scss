@@ -1,0 +1,47 @@
+@import "partials/base";
+@import "partials/palette";
+
+.clickButton {
+  position: relative;
+  display: block;
+  width: 150px;
+  overflow: hidden;
+  padding: 20px;
+  background-color: $dark;
+  color: $white;
+  text-align: center;
+  p {
+    font-size: 18px;
+  }
+  .indicator {
+    position: relative;
+    width: 90%;
+    height: 6px;
+    margin: 10px auto;
+    border-radius: 2px;
+    background-color: rgba($secondary-light, 0.6);
+    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
+    &.active {
+      box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+      background-color: $secondary-light;
+      .light {
+        opacity: 1;
+      }
+    }
+    .light {
+      width: 90%;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
+      transform: translateY(3px);
+      opacity: 0;
+    }
+  }
+  button {
+    position: relative;
+    width: 90%;
+    height: 50px;
+    background-color: $light;
+    cursor: pointer;
+  }
+}

@@ -1,5 +1,8 @@
 import React from 'react';
-import Display from '../components/Display'
+
+import ClickButton from '../components/ClickButton';
+import EffectSelector from '../components/EffectSelector';
+import Display from '../components/Display';
 
 class Processor extends React.Component {
   constructor(props) {
@@ -9,6 +12,8 @@ class Processor extends React.Component {
     return (
       <div>
         <Display />
+        <EffectSelector />
+        <ClickButton title="TAP" />
       </div>
     );
   }
