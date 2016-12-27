@@ -61,12 +61,12 @@
         height: 12px;
         border-bottom: 0;
         .light {
-          opacity: 1;
+          opacity: 0.75;
         }
       }
       .light {
         width: 90%;
-        height: 2px;
+        height: 4px;
         margin: 0 auto;
         background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, darken($white, 10%) 50%, rgba(0, 0, 0, 0) 100%);
         transform: translateY(1px);

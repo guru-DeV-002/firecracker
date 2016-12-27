@@ -36,6 +36,12 @@
       transform: translateY(3px);
       opacity: 0;
     }
+    &.tap-delay {
+      animation: blink 700ms linear infinite;
+      .light {
+        animation: blinkLight 700ms linear infinite;
+      }
+    }
   }
   button {
     position: relative;
@@ -43,5 +49,32 @@
     height: 50px;
     background-color: $light;
     cursor: pointer;
+  }
+}
+
+@keyframes blink {
+  0% {
+    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
+    background-color: rgba($secondary-light, 0.6);
+  }
+  50% {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+    background-color: $secondary-light;
+  }
+  100% {
+    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
+    background-color: rgba($secondary-light, 0.6);
+  }
+}
+
+@keyframes blinkLight {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
