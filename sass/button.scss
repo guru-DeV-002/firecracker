@@ -19,7 +19,7 @@
     height: 6px;
     margin: 10px auto;
     border-radius: 2px;
-    background-color: rgba($secondary-light, 0.6);
+    background-color: rgba($secondary-light, 1);
     box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
     &.active {
       box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
@@ -55,7 +55,7 @@
 @keyframes blink {
   0% {
     box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
-    background-color: rgba($secondary-light, 0.6);
+    background-color: rgba($secondary-light, 1);
   }
   50% {
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
@@ -63,7 +63,7 @@
   }
   100% {
     box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
-    background-color: rgba($secondary-light, 0.6);
+    background-color: rgba($secondary-light, 1);
   }
 }
 

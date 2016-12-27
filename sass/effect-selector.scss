@@ -46,8 +46,8 @@
       height: 16px;
       margin-top: 5px;
       border-radius: 3px;
-      background-color: rgba($primary-light, 0.6);
-      border-bottom: 4px solid darken($primary-light, 25%);
+      background-color: rgba($white, 0.9);
+      border-bottom: 4px solid darken($white, 50%);
       cursor: pointer;
       &:hover {
         transform: translateY(1px);
@@ -61,7 +61,7 @@
         height: 12px;
         border-bottom: 0;
         .light {
-          opacity: 0.75;
+          opacity: 0.5;
         }
       }
       .light {
