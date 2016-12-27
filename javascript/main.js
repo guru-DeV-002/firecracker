@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom';
-import Processor from './containers/Processor';
+
+import ProcessorContainer from './containers/ProcessorContainer';
 
 ReactDOM.render(
-  <Processor/>,
+  <ProcessorContainer />,
   document.getElementById('container')
 );

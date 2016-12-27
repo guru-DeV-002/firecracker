@@ -54,6 +54,11 @@
         height: 15px;
         border-bottom-width: 3px;
       }
+      &:active {
+        transform: translateY(4px);
+        height: 12px;
+        border-bottom-width: 0;
+      }
       &.active {
         box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($primary-light, 20%) 0 0 9px, adjust-hue($primary-light, 15%) 0 -2px 12px;
         background-color: $primary-light;

@@ -1,0 +1,43 @@
+@import "palette";
+
+@keyframes blinkPrimary {
+  0% {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($primary-light, 20%) 0 0 9px, adjust-hue($primary-light, 15%) 0 -2px 12px;
+    background-color: $primary-light;
+  }
+  50% {
+    box-shadow: inset 2px 2px 2px darken($primary-light, 25%);
+    background-color: rgba($primary-light, 1);
+  }
+  100% {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($primary-light, 20%) 0 0 9px, adjust-hue($primary-light, 15%) 0 -2px 12px;
+    background-color: $primary-light;
+  }
+}
+
+@keyframes blinkSecondary {
+  0% {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+    background-color: $secondary-light;
+  }
+  50% {
+    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
+    background-color: rgba($secondary-light, 1);
+  }
+  100% {
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+    background-color: $secondary-light;
+  }
+}
+
+@keyframes blinkLight {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

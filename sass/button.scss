@@ -3,10 +3,10 @@
 
 .clickButton {
   position: relative;
-  display: block;
+  display: inline-block;
   width: 150px;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   background-color: $dark;
   color: $white;
   text-align: center;
@@ -19,15 +19,8 @@
     height: 6px;
     margin: 10px auto;
     border-radius: 2px;
-    background-color: rgba($secondary-light, 1);
+    background-color: $secondary-light;
     box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
-    &.active {
-      box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
-      background-color: $secondary-light;
-      .light {
-        opacity: 1;
-      }
-    }
     .light {
       width: 90%;
       height: 1px;
@@ -36,45 +29,31 @@
       transform: translateY(3px);
       opacity: 0;
     }
-    &.tap-delay {
-      animation: blink 700ms linear infinite;
+    &.active {
+      box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+      background-color: $secondary-light;
       .light {
-        animation: blinkLight 700ms linear infinite;
+        opacity: 1;
       }
     }
   }
   button {
-    position: relative;
-    width: 90%;
-    height: 50px;
+    width: 60%;
+    height: 172px;
+    border-bottom: 14px solid darken($dark, 7%);
+    box-shadow: 2px 4px 8px darken($dark, 7%);
+    transform: perspective(200px) rotateX(-45deg) scale(1.1) translateY(12px);
     background-color: $light;
     cursor: pointer;
-  }
-}
-
-@keyframes blink {
-  0% {
-    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
-    background-color: rgba($secondary-light, 1);
-  }
-  50% {
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
-    background-color: $secondary-light;
-  }
-  100% {
-    box-shadow: inset 2px 2px 2px darken($secondary-light, 25%);
-    background-color: rgba($secondary-light, 1);
-  }
-}
-
-@keyframes blinkLight {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
+    &:hover {
+      transform: perspective(200px) rotateX(-45deg) scale(1.1) translateY(14px);
+      border-bottom-width: 7px;
+    }
+    &:active {
+      transform: perspective(200px) rotateX(-45deg) scale(1.1) translateY(16px);
+      border-bottom-width: 0;
+      box-shadow: 0 0;
+      height: 168px;
+    }
   }
 }
