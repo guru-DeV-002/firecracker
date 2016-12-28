@@ -14,29 +14,39 @@
   }
   .patch {
     width: 35%;
-    height: 150px;
+    height: 170px;
     color: $primary;
     background-color: darken($primary-back, 2%);
     text-shadow: 0 0 9px lighten($primary, 5%);
     p {
       font-family: 'Racing Sans One';
-      font-size: 24px;
+      font-size: 22px;
+      text-transform: uppercase;
     }
     .code {
+      text-align: center;
       font-size: 64px;
     }
   }
   .settings {
     width: 65%;
-    height: 150px;
+    height: 170px;
     color: $primary;
     background-color: $primary-back;
     text-shadow: 0 0 9px lighten($primary, 5%);
     vertical-align: bottom;
-    & > div {
+    & > div, & > p {
       position: relative;
       display: inline-block;
       vertical-align: middle;
+      width: 100%;
+    }
+    & > p {
+      width: 50%;
+      padding-bottom: 5px
+    }
+    .rightAlign {
+      text-align: right;
     }
     .prop {
       width: 30%;

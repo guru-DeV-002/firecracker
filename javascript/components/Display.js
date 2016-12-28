@@ -6,30 +6,32 @@ class Display extends React.Component {
     super(props);
   }
   render() {
+    const FXSettingNames = this.props.fx().settings.map((setting, i) =>
+      <p key={i}>{setting.name}</p>
+    );
+    const FXSettingProgress = this.props.fx().settings.map((setting, i) =>
+      <progress key={i} max={setting.max} value={setting.level}></progress>
+    );
+    const FXSettingLevels = this.props.fx().settings.map((setting, i) =>
+      <p key={i}>{setting.level}</p>
+    );
     return (
       <div className="display">
         <div className="patch">
-          <p className="code">U02</p>
-          <p>MILD SOLO</p>
+          <p className="code">{this.props.bank()}</p>
+          <p>{this.props.patch()}</p>
         </div>
         <div className="settings">
+          <p className="name">{this.props.fx().name}</p>
+          <p className="status rightAlign">Status: {(this.props.fx().active ? 'ON' : 'OFF')}</p>
           <div className="prop">
-            <p>High</p>
-            <p>High Mids</p>
-            <p>Low Mids</p>
-            <p>Low</p>
+            {FXSettingNames}
           </div>
           <div className="bar">
-            <progress max="100" value="92"></progress>
-            <progress max="100" value="65"></progress>
-            <progress max="100" value="74"></progress>
-            <progress max="100" value="81"></progress>
+            {FXSettingProgress}
           </div>
           <div className="level">
-            <p>92</p>
-            <p>65</p>
-            <p>74</p>
-            <p>81</p>
+            {FXSettingLevels}
           </div>
         </div>
       </div>
