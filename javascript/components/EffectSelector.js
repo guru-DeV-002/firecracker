@@ -1,28 +1,19 @@
 import React from 'react';
-let processor = require('./ProcessorFunctions');
 require('../../sass/effect-selector.scss');
 
 class EffectSelector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = processor;
-  }
-  handleClick(index, e) {
-    let newEffects = this.state.effects;
-    newEffects[index].active = !newEffects[index].active;
-    this.setState({
-      effects: newEffects
-    });
   }
   render() {
-    const processorEffects = this.state.effects.map((effect, index) => {
-      let click = this.handleClick.bind(this, index);
+    const processorEffects = this.props.effects().map((effect, i) => {
       return (
-        <div className="effect" key={effect.name}>
+        <div className="effect" key={i}>
           <p>{effect.name}</p>
           <button
+            data-id={i}
             className={(effect.active ? 'active' : '')}
-            onClick={click}>
+            onClick={this.props.toggleEffect}>
             <div className="light"></div>
           </button>
         </div>

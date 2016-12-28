@@ -73,10 +73,9 @@ let effects = [
 let ProcessorState = {
   editing: false,
   pedalLevel: 0,
-  activeBankPatch: {
-    bank: 0, // 0, 1, 2
-    patch: 0 // 0, 1, 2
-  },
+  activeFx: 0, // 0, 1, 2, 3, 4, 5, 6 - FX displayed on screen
+  activeBank: 0, // 0, 1, 2 - Equivalent to A, B, C
+  activePatch: 0, // 0, 1, 2 - Equivalent to 1, 2, 3
   banks: [
     {
       code: 'A',
@@ -127,4 +126,7 @@ let ProcessorState = {
   ]
 };
 
-module.exports = ProcessorState;
+module.exports = {
+  ProcessorState: ProcessorState,
+  effects: effects
+};
