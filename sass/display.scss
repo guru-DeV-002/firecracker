@@ -3,8 +3,7 @@
 @import "partials/mixins";
 
 .display {
-  position: relative;
-  display: block;
+  @include inline-block(middle);
   width: 500px;
   overflow: hidden;
   background-color: $dark;

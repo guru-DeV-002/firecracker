@@ -24,6 +24,7 @@ class BankSelector extends React.Component {
           title="UP"
           icon="fa fa-caret-up"
           active={false}
+          showIndicator={false}
           onClick={this.props.increment} />
       </div>
     );

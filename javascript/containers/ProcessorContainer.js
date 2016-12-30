@@ -1,11 +1,13 @@
 import React from 'react';
 
-import ClickButton from '../components/ClickButton';
-import BankSelector from '../components/BankSelector';
+import Display from '../components/Display';
 import EditSave from '../components/EditSave';
 import EffectSelector from '../components/EffectSelector';
-import Display from '../components/Display';
+import PropertySelector from '../components/PropertySelector';
+import ClickButton from '../components/ClickButton';
+import BankSelector from '../components/BankSelector';
 
+require('../../sass/main.scss');
 const Processor = require('./ProcessorState');
 
 class ProcessorContainer extends React.Component {
@@ -46,21 +48,22 @@ class ProcessorContainer extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="processor">
+        <EditSave
+          editing={this.state.editing}
+          toggleEdit={this.toggleEdit}
+          onSave={this.savePatch} />
         <Display
           bank={this.state.bankName}
           patch={this.state.patchName}
           fx={this.state.activeFx} />
+        <PropertySelector />
         <EffectSelector
           effects={this.state.effects}
           toggleEffect={this.toggleEffect} />
         <BankSelector
           decrement={this.decrementBank}
           increment={this.incrementBank} />
-        <EditSave
-          editing={this.state.editing}
-          toggleEdit={this.toggleEdit}
-          onSave={this.savePatch} />
       </div>
     );
   }

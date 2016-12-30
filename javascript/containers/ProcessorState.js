@@ -44,6 +44,14 @@ let effects = [
       max: 100
     }]
   }, {
+    name: 'Flanger',
+    active: false,
+    settings: [{
+      name: 'Level',
+      level: 0,
+      max: 100
+    }]
+  }, {
     name: 'Tremolo',
     active: false,
     settings: [{
