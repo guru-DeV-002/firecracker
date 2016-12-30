@@ -81,7 +81,6 @@ let effects = [
 let ProcessorState = {
   outputLevel: 50,
   editing: false,
-  pedalLevel: 0,
   activeFx: {
     name: 'Drive',
     active: false,

@@ -100,6 +100,9 @@ class ProcessorContainer extends React.Component {
           <PatchSelector
             selectPatch={this.selectPatch} />
         </div>
+        <div className="pedal">
+          <span className="separator"></span>
+        </div>
       </div>
     );
   }
