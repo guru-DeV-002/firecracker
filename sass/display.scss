@@ -9,8 +9,7 @@
   overflow: hidden;
   background-color: $dark;
   & > div {
-    position: relative;
-    display: inline-block;
+    @include inline-block(middle);
     padding: 20px;
   }
   .patch {
@@ -18,7 +17,7 @@
     height: 170px;
     color: $primary;
     background-color: darken($primary-back, 2%);
-    text-shadow: 0 0 9px lighten($primary, 5%);
+    @include display-glow(lighten($primary, 5%));
     p {
       font-family: 'Racing Sans One';
       font-size: 22px;
@@ -35,12 +34,10 @@
     height: 170px;
     color: $primary;
     background-color: $primary-back;
-    text-shadow: 0 0 9px lighten($primary, 5%);
+    @include display-glow(lighten($primary, 5%));
     vertical-align: bottom;
     & > div, & > p {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
+      @include inline-block(middle);
       width: 100%;
     }
     & > p {
@@ -63,14 +60,13 @@
         width: 100%;
         padding: 0 10px;
         margin: 5px 0;
-        display: inline-block;
-        vertical-align: middle;
+        @include inline-block(middle);
         &::-webkit-progress-bar {
           background-color: darken($primary-back, 2%);
         }
         &::-webkit-progress-value {
           background-color: $primary;
-          box-shadow: 0 0 9px lighten($primary, 5%);
+          @include display-glow-box(lighten($primary, 5%));
         }
       }
     }

@@ -3,3 +3,75 @@
   display: inline-block;
   vertical-align: $va;
 }
+
+@mixin display-glow($color) {
+  text-shadow: 0 0 9px $color;
+}
+
+@mixin display-glow-box($color) {
+  box-shadow: 0 0 9px $color;
+}
+
+@mixin separator-title {
+  .title {
+    transform: translateY(11px);
+    padding-bottom: 5px;
+    p {
+      display: table;
+      margin: 0 auto;
+      padding: 0 8px;
+      transform: translateY(-11px);
+      text-align: center;
+      font-size: 18px;
+      color: $white;
+      background-color: $dark;
+    }
+    .separator {
+      position: relative;
+      display: block;
+      width: 90%;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
+    }
+  }
+}
+
+@mixin tap-button($width, $active-color) {
+  button {
+    width: $width;
+    height: 16px;
+    margin-top: 5px;
+    border-radius: 3px;
+    background-color: rgba($white, 0.9);
+    border-bottom: 4px solid darken($white, 50%);
+    cursor: pointer;
+    &:hover {
+      transform: translateY(1px);
+      height: 15px;
+      border-bottom-width: 3px;
+    }
+    &:active {
+      transform: translateY(4px);
+      height: 12px;
+      border-bottom-width: 0;
+    }
+    &.active {
+      box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($active-color, 20%) 0 0 9px, adjust-hue($active-color, 15%) 0 -2px 12px;
+      background-color: $active-color;
+      transform: translateY(4px);
+      height: 12px;
+      border-bottom: 0;
+      .light {
+        opacity: 0.5;
+      }
+    }
+    .light {
+      width: 90%;
+      height: 4px;
+      margin: 0 auto;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, darken($white, 10%) 50%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0;
+    }
+  }
+}

@@ -3,8 +3,7 @@
 @import "partials/mixins";
 
 .clickButton {
-  position: relative;
-  display: inline-block;
+  @include inline-block(middle);
   width: 150px;
   overflow: hidden;
   padding: 20px 20px 0 20px;
