@@ -3,14 +3,14 @@
 @import "partials/mixins";
 
 .effect-selector {
-  position: relative;
-  display: block;
+  @include inline-block(middle);
   width: 680px;
   overflow: hidden;
   padding: 8px 2px 12px 2px;
+  margin-left: 175px;
   background-color: $dark;
   text-align: center;
-  @include separator-title;
+  @include separator-title($dark);
   .effect {
     @include inline-block(middle);
     width: 10.5%;

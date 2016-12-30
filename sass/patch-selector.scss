@@ -2,7 +2,7 @@
 @import "partials/palette";
 @import "partials/mixins";
 
-.bank-selector {
+.patch-selector {
   @include inline-block(middle);
   overflow: hidden;
   padding-top: 20px;

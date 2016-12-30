@@ -1,6 +1,35 @@
 @import "partials/base";
 @import "partials/palette";
+@import "partials/mixins";
 
 .processor {
+  position: relative;
+  display: block;
+  width: 90%;
+  overflow: hidden;
+  margin: 50px auto 0 auto;
+  border-radius: 8px;
   background-color: $dark;
+  box-shadow: 0 0 50px black;
+  .upper {
+    box-shadow: 0 0 40px #111;
+    .row0 {
+      p {
+        @include inline-block(middle);
+        width: 12%;
+        color: darken($white, 20%);
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+      padding: 4px 40px 20px 40px;
+    }
+    .row2 {
+      padding-bottom: 8px;
+    }
+  }
+  .row3 {
+    padding: 0 20px;
+    margin-top: 8px;
+    background-color: darken($dark, 3%);
+  }
 }

@@ -12,7 +12,7 @@
   box-shadow: 0 0 9px $color;
 }
 
-@mixin separator-title {
+@mixin separator-title($bg) {
   .title {
     transform: translateY(11px);
     padding-bottom: 5px;
@@ -24,7 +24,7 @@
       text-align: center;
       font-size: 18px;
       color: $white;
-      background-color: $dark;
+      background-color: $bg;
     }
     .separator {
       position: relative;

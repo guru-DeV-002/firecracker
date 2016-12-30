@@ -9,7 +9,7 @@
   padding: 10px;
   background-color: $dark;
   text-align: center;
-  @include separator-title;
+  @include separator-title($dark);
   .buttons {
     div {
       position: relative;
