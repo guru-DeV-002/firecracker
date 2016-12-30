@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Display from '../components/Display';
+import OutputLevel from '../components/OutputLevel';
 import EditSave from '../components/EditSave';
 import EffectSelector from '../components/EffectSelector';
 import PropertySelector from '../components/PropertySelector';
@@ -21,6 +22,7 @@ class ProcessorContainer extends React.Component {
     this.decrementBank = this.decrementBank.bind(this);
     this.incrementBank = this.incrementBank.bind(this);
     this.selectPatch = this.selectPatch.bind(this);
+    this.handleOutput = this.handleOutput.bind(this);
   }
   toggleEdit() {
     this.setState({
@@ -51,6 +53,11 @@ class ProcessorContainer extends React.Component {
   selectPatch(patch) {
     console.log(patch);
   }
+  handleOutput(newOutput) {
+    this.setState({
+      outputLevel: newOutput
+    });
+  }
   render() {
     return (
       <div className="processor">
@@ -65,10 +72,15 @@ class ProcessorContainer extends React.Component {
             <p>Input</p>
           </div>
           <div className="row1">
-            <EditSave
-              editing={this.state.editing}
-              toggleEdit={this.toggleEdit}
-              onSave={this.savePatch} />
+            <div className="edit-save-container">
+              <OutputLevel
+                outputLevel={this.state.outputLevel}
+                handleOutput={this.handleOutput} />
+              <EditSave
+                editing={this.state.editing}
+                toggleEdit={this.toggleEdit}
+                onSave={this.savePatch} />
+            </div>
             <Display
               bank={this.state.bankName}
               patch={this.state.patchName}

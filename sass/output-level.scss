@@ -1,0 +1,13 @@
+@import "partials/base";
+@import "partials/palette";
+
+.output-level {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  p {
+    color: $white;
+    margin-bottom: 5px;
+  }
+}

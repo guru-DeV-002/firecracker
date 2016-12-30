@@ -23,6 +23,11 @@
       }
       padding: 4px 40px 20px 40px;
     }
+    .row1 {
+      .edit-save-container {
+        @include inline-block(middle);
+      }
+    }
     .row2 {
       padding-bottom: 8px;
     }
