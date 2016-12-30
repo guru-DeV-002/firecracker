@@ -10,47 +10,25 @@ class ProcessorContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = Processor.ProcessorState;
-    this.getBankName = this.getBankName.bind(this);
-    this.getPatchName = this.getPatchName.bind(this);
-    this.getActiveFx = this.getActiveFx.bind(this);
-    this.getPatchEffects = this.getPatchEffects.bind(this);
     this.toggleEffect = this.toggleEffect.bind(this);
   }
-  getBankName() {
-    let bankNum = this.state.activeBank;
-    let patchNum = this.state.activePatch;
-    return this.state.banks[bankNum].code + '0' + (patchNum + 1);
-  }
-  getPatchName() {
-    let bankNum = this.state.activeBank;
-    let patchNum = this.state.activePatch;
-    return this.state.banks[bankNum].patches[patchNum].patchName;
-  }
-  getActiveFx() {
-    let bankNum = this.state.activeBank;
-    let patchNum = this.state.activePatch;
-    return this.state.banks[bankNum].patches[patchNum].effects[this.state.activeFx];
-  }
-  getPatchEffects() {
-    let bankNum = this.state.activeBank;
-    let patchNum = this.state.activePatch;
-    return this.state.banks[bankNum].patches[patchNum].effects;
-  }
-  toggleEffect(e) {
-    let bankNum = this.state.activeBank;
-    let patchNum = this.state.activePatch;
-    console.log(e.target.dataset.id);
-    //!this.state.banks[bankNum].patches[patchNum].effects[e.target.dataset.id].active;
+  toggleEffect(effect, event) {
+    if (this.state.activeFx.name === effect.name) { // Same as that on Display
+      effect.active = !effect.active;
+    }
+    this.setState({
+      activeFx: effect
+    });
   }
   render() {
     return (
       <div>
         <Display
-          bank={this.getBankName}
-          patch={this.getPatchName}
-          fx={this.getActiveFx} />
+          bank={this.state.bankName}
+          patch={this.state.patchName}
+          fx={this.state.activeFx} />
         <EffectSelector
-          effects={this.getPatchEffects}
+          effects={this.state.effects}
           toggleEffect={this.toggleEffect} />
       </div>
     );

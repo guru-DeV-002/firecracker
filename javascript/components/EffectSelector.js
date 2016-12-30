@@ -6,14 +6,13 @@ class EffectSelector extends React.Component {
     super(props);
   }
   render() {
-    const processorEffects = this.props.effects().map((effect, i) => {
+    const processorEffects = this.props.effects.map((effect, i) => {
       return (
         <div className="effect" key={i}>
           <p>{effect.name}</p>
           <button
-            data-id={i}
             className={(effect.active ? 'active' : '')}
-            onClick={this.props.toggleEffect}>
+            onClick={this.props.toggleEffect.bind(null, effect)}>
             <div className="light"></div>
           </button>
         </div>

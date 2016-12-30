@@ -71,11 +71,21 @@ let effects = [
 ];
 
 let ProcessorState = {
+  outputLevel: 50,
   editing: false,
   pedalLevel: 0,
-  activeFx: 0, // 0, 1, 2, 3, 4, 5, 6 - FX displayed on screen
-  activeBank: 0, // 0, 1, 2 - Equivalent to A, B, C
-  activePatch: 0, // 0, 1, 2 - Equivalent to 1, 2, 3
+  activeFx: {
+    name: 'Drive',
+    active: false,
+    settings: [{
+      name: 'Level',
+      level: 0,
+      max: 100
+    }]
+  },
+  bankName: 'A01',
+  patchName: 'Evil Tone',
+  effects: effects,
   banks: [
     {
       code: 'A',
