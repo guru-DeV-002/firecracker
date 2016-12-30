@@ -1,0 +1,58 @@
+@import "partials/base";
+@import "partials/palette";
+
+.edit-save {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  background-color: $dark;
+  padding: 10px;
+  div {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+    p {
+      color: $white;
+    }
+    button {
+      width: 50%;
+      height: 16px;
+      margin-top: 5px;
+      border-radius: 3px;
+      background-color: rgba($white, 0.9);
+      border-bottom: 4px solid darken($white, 50%);
+      cursor: pointer;
+      &:hover {
+        transform: translateY(1px);
+        height: 15px;
+        border-bottom-width: 3px;
+      }
+      &:active {
+        transform: translateY(4px);
+        height: 12px;
+        border-bottom-width: 0;
+      }
+      &.active {
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 7px 1px, inset darken($secondary-light, 20%) 0 0 9px, adjust-hue($secondary-light, 15%) 0 -2px 12px;
+        background-color: $secondary-light;
+        transform: translateY(4px);
+        height: 12px;
+        border-bottom: 0;
+        .light {
+          opacity: 0.5;
+        }
+      }
+      .light {
+        width: 90%;
+        height: 4px;
+        margin: 0 auto;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, darken($white, 10%) 50%, rgba(0, 0, 0, 0) 100%);
+        transform: translateY(-3px);
+        opacity: 0;
+      }
+    }
+  }
+}
