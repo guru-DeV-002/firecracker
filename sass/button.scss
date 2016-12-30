@@ -17,6 +17,9 @@
     font-size: 18px;
   }
   .indicator {
+    &.hide {
+      opacity: 0 !important;
+    }
     position: relative;
     width: 90%;
     height: 6px;

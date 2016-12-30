@@ -9,7 +9,10 @@ class ClickButton extends React.Component {
     return (
       <div className="clickButton">
         <p><i className={this.props.icon}></i>{this.props.title}</p>
-        <div className={'indicator ' + (this.props.active ? 'active ' : '')}>
+        <div
+          className={'indicator ' +
+            (this.props.active ? 'active ' : '') +
+            (this.props.showIndicator === false ? 'hide ' : '')}>
           <div className="light"></div>
         </div>
         <button onClick={this.props.onClick}></button>

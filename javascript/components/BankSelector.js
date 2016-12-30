@@ -18,6 +18,7 @@ class BankSelector extends React.Component {
           title="DOWN"
           icon="fa fa-caret-down"
           active={false}
+          showIndicator={false}
           onClick={this.props.decrement} />
         <ClickButton
           title="UP"
