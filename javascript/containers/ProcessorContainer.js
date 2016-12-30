@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ClickButton from '../components/ClickButton';
+import BankSelector from '../components/BankSelector';
 import EditSave from '../components/EditSave';
 import EffectSelector from '../components/EffectSelector';
 import Display from '../components/Display';
@@ -14,6 +15,8 @@ class ProcessorContainer extends React.Component {
     this.toggleEffect = this.toggleEffect.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.savePatch = this.savePatch.bind(this);
+    this.decrementBank = this.decrementBank.bind(this);
+    this.incrementBank = this.incrementBank.bind(this);
   }
   toggleEdit() {
     this.setState({
@@ -35,6 +38,12 @@ class ProcessorContainer extends React.Component {
       activeFx: effect
     });
   }
+  decrementBank() {
+    console.log('Decrement');
+  }
+  incrementBank() {
+    console.log('Increment');
+  }
   render() {
     return (
       <div>
@@ -45,6 +54,9 @@ class ProcessorContainer extends React.Component {
         <EffectSelector
           effects={this.state.effects}
           toggleEffect={this.toggleEffect} />
+        <BankSelector
+          decrement={this.decrementBank}
+          increment={this.incrementBank} />
         <EditSave
           editing={this.state.editing}
           toggleEdit={this.toggleEdit}

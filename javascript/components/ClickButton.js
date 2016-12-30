@@ -8,11 +8,11 @@ class ClickButton extends React.Component {
   render() {
     return (
       <div className="clickButton">
-        <p>{this.props.title}</p>
+        <p><i className={this.props.icon}></i>{this.props.title}</p>
         <div className={'indicator ' + (this.props.active ? 'active ' : '')}>
           <div className="light"></div>
         </div>
-        <button onClick={this.props.toggle}></button>
+        <button onClick={this.props.onClick}></button>
       </div>
     );
   }
