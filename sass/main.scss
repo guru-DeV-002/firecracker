@@ -2,61 +2,86 @@
 @import "partials/palette";
 @import "partials/mixins";
 
-.processor {
+.processor-container {
   position: relative;
   display: block;
-  width: 88%;
+  width: 100%;
   overflow: hidden;
-  margin: 50px auto 0 auto;
-  border-radius: 8px;
-  background-color: $dark;
-  box-shadow: 0 0 50px black;
-  .upper {
-    box-shadow: 0 0 40px #111;
-    .row0 {
-      p {
-        @include inline-block(middle);
-        width: 12%;
-        color: darken($white, 20%);
-        font-size: 11px;
-        text-transform: uppercase;
-      }
-      padding: 4px 40px 20px 40px;
-    }
-    .row1 {
-      .edit-save-container {
-        @include inline-block(middle);
+  margin: 35px auto 0 auto;
+  padding: 0 6% 40px 6%;
+  .pins {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 40px;
+    div {
+      @include inline-block(baseline);
+      width: 12%;
+      span {
+        display: block;
+        width: 16%;
+        height: 4px;
+        background-color: darken($white, 20%);
+        margin-bottom: -4px;
       }
     }
-    .row2 {
-      padding-bottom: 8px;
+  }
+  .processor {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: $dark;
+    box-shadow: 0 0 50px black;
+    .upper {
+      box-shadow: 0 0 40px #111;
+      .row0 {
+        p {
+          @include inline-block(middle);
+          width: 12%;
+          color: darken($white, 20%);
+          font-size: 11px;
+          text-transform: uppercase;
+        }
+        padding: 4px 40px 20px 40px;
+      }
+      .row1 {
+        .edit-save-container {
+          @include inline-block(middle);
+        }
+      }
+      .row2 {
+        padding-bottom: 8px;
+      }
     }
-  }
-  .row3 {
-    padding: 0 20px;
-    margin-top: 8px;
-    background-color: darken($dark, 3%);
-  }
-  .pedal {
-    position: absolute;
-    right: 50px;
-    top: 50%;
-    margin-top: -260px;
-    width: 250px;
-    height: 520px;
-    border-radius: 4px;
-    background-color: $light;
-    box-shadow: 0 -10px 40px darken($dark, 5%);
-    .separator {
+    .row3 {
+      padding: 0 20px;
+      margin-top: 8px;
+      background-color: darken($dark, 3%);
+    }
+    .pedal {
       position: absolute;
-      left: 50%;
-      top: 60%;
-      display: block;
-      width: 90%;
-      height: 1px;
-      margin-left: -45%;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
-      opacity: 0.3;
+      right: 50px;
+      top: 50%;
+      margin-top: -260px;
+      width: 250px;
+      height: 520px;
+      border-radius: 4px;
+      background-color: $light;
+      box-shadow: 0 -10px 40px darken($dark, 5%);
+      .separator {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        display: block;
+        width: 90%;
+        height: 1px;
+        margin-left: -45%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $white 50%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0.3;
+      }
     }
   }
 }
