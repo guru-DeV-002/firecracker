@@ -3,17 +3,47 @@ let effects = [
     name: 'Drive',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Overdrive',
+      level: 5,
       min: 0,
       max: 10
-    }]
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Boost',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
+      min: 0,
+      max: 10
+    },]
   }, {
     name: 'Comp.',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Threshold',
+      level: -20,
+      min: -40,
+      max: 0
+    }, {
+      name: 'Ratio',
+      level: 3,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Attack',
+      level: 3,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Release',
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -26,12 +56,7 @@ let effects = [
       min: -5,
       max: 5
     }, {
-      name: 'High Mids',
-      level: 0,
-      min: -5,
-      max: 5
-    }, {
-      name: 'Low Mids',
+      name: 'Mids',
       level: 0,
       min: -5,
       max: 5
@@ -40,13 +65,33 @@ let effects = [
       level: 0,
       min: -5,
       max: 5
+    }, {
+      name: 'Gain',
+      level: 0,
+      min: -5,
+      max: 5
     }]
   }, {
     name: 'Chorus',
     active: false,
     settings: [{
+      name: 'Speed',
+      level: 2,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 50,
+      min: 0,
+      max: 100
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
       name: 'Level',
-      level: 0,
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -54,8 +99,23 @@ let effects = [
     name: 'Flanger',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Speed',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Feedback',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Delay Time',
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -63,8 +123,23 @@ let effects = [
     name: 'Tremolo',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Speed',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Rise Time',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Tone',
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -72,8 +147,23 @@ let effects = [
     name: 'Delay',
     active: false,
     settings: [{
-      name: 'Level',
+      name: 'Delay',
+      level: 50,
+      min: 0,
+      max: 100
+    }, {
+      name: 'Feedback',
+      level: 50,
+      min: 0,
+      max: 100
+    }, {
+      name: 'Type',
       level: 0,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -81,8 +171,23 @@ let effects = [
     name: 'Reverb',
     active: false,
     settings: [{
-      name: 'Level',
+      name: 'Decay',
+      level: 50,
+      min: 0,
+      max: 100
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Type',
       level: 0,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
       min: 0,
       max: 10
     }]
@@ -103,17 +208,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -126,12 +261,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -140,13 +270,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -154,8 +304,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -163,8 +328,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -172,8 +352,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -181,8 +376,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -196,17 +406,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -219,12 +459,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -233,13 +468,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -247,8 +502,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -256,8 +526,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -265,8 +550,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -274,8 +574,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -289,17 +604,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -312,12 +657,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -326,13 +666,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -340,8 +700,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -349,8 +724,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -358,8 +748,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -367,8 +772,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -385,17 +805,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -408,12 +858,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -422,13 +867,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -436,8 +901,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -445,8 +925,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -454,8 +949,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -463,8 +973,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -478,17 +1003,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -501,12 +1056,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -515,13 +1065,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -529,8 +1099,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -538,8 +1123,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -547,8 +1147,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -556,8 +1171,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -571,17 +1201,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -594,12 +1254,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -608,13 +1263,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -622,8 +1297,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -631,8 +1321,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -640,8 +1345,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -649,8 +1369,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -667,17 +1402,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -690,12 +1455,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -704,13 +1464,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -718,8 +1498,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -727,8 +1522,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -736,8 +1546,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -745,8 +1570,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -760,17 +1600,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -783,12 +1653,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -797,13 +1662,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -811,8 +1696,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -820,8 +1720,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -829,8 +1744,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -838,8 +1768,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -853,17 +1798,47 @@ let ProcessorState = {
             name: 'Drive',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Overdrive',
+              level: 5,
               min: 0,
               max: 10
-            }]
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
           }, {
             name: 'Comp.',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -876,12 +1851,7 @@ let ProcessorState = {
               min: -5,
               max: 5
             }, {
-              name: 'High Mids',
-              level: 0,
-              min: -5,
-              max: 5
-            }, {
-              name: 'Low Mids',
+              name: 'Mids',
               level: 0,
               min: -5,
               max: 5
@@ -890,13 +1860,33 @@ let ProcessorState = {
               level: 0,
               min: -5,
               max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
             active: false,
             settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
               name: 'Level',
-              level: 0,
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -904,8 +1894,23 @@ let ProcessorState = {
             name: 'Flanger',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -913,8 +1918,23 @@ let ProcessorState = {
             name: 'Tremolo',
             active: false,
             settings: [{
-              name: 'Level',
-              level: 0,
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -922,8 +1942,23 @@ let ProcessorState = {
             name: 'Delay',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
@@ -931,8 +1966,23 @@ let ProcessorState = {
             name: 'Reverb',
             active: false,
             settings: [{
-              name: 'Level',
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
               level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
               min: 0,
               max: 10
             }]
