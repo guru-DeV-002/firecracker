@@ -92,6 +92,8 @@ let ProcessorState = {
   },
   bankName: 'A01',
   patchName: 'Evil Tone',
+  activeBank: 0,
+  activePatch: 0,
   effects: effects,
   banks: [
     {

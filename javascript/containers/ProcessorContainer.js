@@ -45,13 +45,42 @@ class ProcessorContainer extends React.Component {
     });
   }
   decrementBank() {
-    console.log('Decrement');
+    let activeBank = this.state.activeBank;
+    activeBank = (activeBank - 1 < 0 ? activeBank - 1 + this.state.banks.length : activeBank - 1);
+    let newBank = String.fromCharCode(activeBank + 65);
+    newBank = newBank.concat(this.state.bankName[1] + this.state.bankName[2]);
+    let newPatch = this.state.banks[activeBank].patches[this.state.activePatch];
+    this.setState({
+      activeBank: activeBank,
+      bankName: newBank,
+      patchName: newPatch.patchName,
+      activeFx: newPatch.effects[0]
+    });
   }
   incrementBank() {
-    console.log('Increment');
+    let activeBank = this.state.activeBank;
+    activeBank = (activeBank + 1 >= this.state.banks.length ? activeBank + 1 - this.state.banks.length : activeBank + 1);
+    let newBank = String.fromCharCode(activeBank + 65);
+    newBank = newBank.concat(this.state.bankName[1] + this.state.bankName[2]);
+    let newPatch = this.state.banks[activeBank].patches[this.state.activePatch];
+    this.setState({
+      activeBank: activeBank,
+      bankName: newBank,
+      patchName: newPatch.patchName,
+      activeFx: newPatch.effects[0]
+    });
   }
-  selectPatch(patch) {
-    console.log(patch);
+  selectPatch(pid) {
+    let patch = (pid + 1).toString();
+    patch = (patch.length == 1 ? ('0' + patch) : patch);
+    let newBank = this.state.bankName[0];
+    let newPatch = this.state.banks[this.state.activeBank].patches[pid];
+    this.setState({
+      bankName: newBank + patch,
+      patchName: newPatch.patchName,
+      activePatch: pid,
+      activeFx: newPatch.effects[0]
+    });
   }
   handleOutput(newOutput) {
     this.setState({
@@ -108,6 +137,7 @@ class ProcessorContainer extends React.Component {
               decrement={this.decrementBank}
               increment={this.incrementBank} />
             <PatchSelector
+              activeId={this.state.activePatch}
               selectPatch={this.selectPatch} />
           </div>
           <div className="pedal">
