@@ -5,7 +5,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Comp.',
@@ -13,7 +14,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'EQ',
@@ -21,19 +23,23 @@ let effects = [
     settings: [{
       name: 'Treble',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }, {
       name: 'High Mids',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }, {
       name: 'Low Mids',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }, {
       name: 'Bass',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }]
   }, {
     name: 'Chorus',
@@ -41,7 +47,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Flanger',
@@ -49,7 +56,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Tremolo',
@@ -57,7 +65,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Delay',
@@ -65,7 +74,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Reverb',
@@ -73,7 +83,8 @@ let effects = [
     settings: [{
       name: 'Level',
       level: 0,
-      max: 100
+      min: 0,
+      max: 10
     }]
   }
 ];
@@ -94,6 +105,7 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
+              min: 0,
               max: 10
             }]
           }, {
@@ -102,7 +114,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -110,19 +123,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -130,7 +147,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -138,7 +156,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -146,7 +165,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -154,7 +174,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -162,7 +183,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -176,7 +198,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -184,7 +207,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -192,19 +216,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -212,7 +240,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -220,7 +249,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -228,7 +258,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -236,7 +267,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -244,7 +276,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -258,7 +291,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -266,7 +300,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -274,19 +309,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -294,7 +333,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -302,7 +342,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -310,7 +351,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -318,7 +360,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -326,7 +369,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -343,7 +387,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -351,7 +396,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -359,19 +405,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -379,7 +429,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -387,7 +438,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -395,7 +447,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -403,7 +456,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -411,7 +465,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -425,7 +480,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -433,7 +489,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -441,19 +498,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -461,7 +522,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -469,7 +531,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -477,7 +540,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -485,7 +549,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -493,7 +558,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -507,7 +573,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -515,7 +582,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -523,19 +591,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -543,7 +615,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -551,7 +624,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -559,7 +633,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -567,7 +642,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -575,7 +651,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -592,7 +669,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -600,7 +678,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -608,19 +687,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -628,7 +711,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -636,7 +720,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -644,7 +729,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -652,7 +738,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -660,7 +747,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -674,7 +762,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -682,7 +771,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -690,19 +780,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -710,7 +804,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -718,7 +813,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -726,7 +822,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -734,7 +831,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -742,7 +840,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],
@@ -756,7 +855,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Comp.',
@@ -764,7 +864,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'EQ',
@@ -772,19 +873,23 @@ let ProcessorState = {
             settings: [{
               name: 'Treble',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'High Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Low Mids',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }, {
               name: 'Bass',
               level: 0,
-              max: 100
+              min: -5,
+              max: 5
             }]
           }, {
             name: 'Chorus',
@@ -792,7 +897,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Flanger',
@@ -800,7 +906,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Tremolo',
@@ -808,7 +915,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Delay',
@@ -816,7 +924,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }, {
             name: 'Reverb',
@@ -824,7 +933,8 @@ let ProcessorState = {
             settings: [{
               name: 'Level',
               level: 0,
-              max: 100
+              min: 0,
+              max: 10
             }]
           }
         ],

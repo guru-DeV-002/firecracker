@@ -54,17 +54,18 @@
     }
     .bar {
       width: 60%;
-      progress[value] {
-        -webkit-appearance: none;
+      meter {
+        -webkit-appearance: meter;
         width: 100%;
         padding: 0 10px;
         margin: 5px 0;
         @include inline-block(middle);
-        &::-webkit-progress-bar {
+        &::-webkit-meter-bar {
+          background: none;
           background-color: darken($primary-back, 2%);
         }
-        &::-webkit-progress-value {
-          background-color: $primary;
+        &::-webkit-meter-optimum-value {
+          background: $primary;
           @include display-glow-box(lighten($primary, 5%));
         }
       }

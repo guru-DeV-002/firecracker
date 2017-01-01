@@ -108,7 +108,7 @@ class ProcessorContainer extends React.Component {
       settings: this.state.activeFx.settings
     };
     if (typeof newFx.settings[propID] !== 'undefined') {
-      newFx.settings[propID].level = (newFx.settings[propID].level - 1 < 0 ? 0 : newFx.settings[propID].level - 1);
+      newFx.settings[propID].level = (newFx.settings[propID].level - 1 < newFx.settings[propID].min ? newFx.settings[propID].min : newFx.settings[propID].level - 1);
       this.setState({
         activeFx: newFx
       });
