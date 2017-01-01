@@ -10,7 +10,7 @@ class Display extends React.Component {
       <p key={i}>{setting.name}</p>
     );
     const FXSettingProgress = this.props.fx.settings.map((setting, i) =>
-      <progress key={i} max={setting.max} value={setting.level}></progress>
+      <meter key={i} max={setting.max} min={setting.min} value={setting.level}></meter>
     );
     const FXSettingLevels = this.props.fx.settings.map((setting, i) =>
       <p key={i}>{setting.level}</p>

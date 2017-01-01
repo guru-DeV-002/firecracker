@@ -3,17 +3,49 @@ let effects = [
     name: 'Drive',
     active: false,
     settings: [{
+      name: 'Overdrive',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Boost',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
       name: 'Level',
-      level: 0,
-      max: 100
-    }]
+      level: 5,
+      min: 0,
+      max: 10
+    },]
   }, {
     name: 'Comp.',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
-      max: 100
+      name: 'Threshold',
+      level: -20,
+      min: -40,
+      max: 0
+    }, {
+      name: 'Ratio',
+      level: 3,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Attack',
+      level: 3,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Release',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'EQ',
@@ -21,122 +53,1941 @@ let effects = [
     settings: [{
       name: 'Treble',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }, {
-      name: 'High Mids',
+      name: 'Mids',
       level: 0,
-      max: 100
-    }, {
-      name: 'Low Mids',
-      level: 0,
-      max: 100
+      min: -5,
+      max: 5
     }, {
       name: 'Bass',
       level: 0,
-      max: 100
+      min: -5,
+      max: 5
+    }, {
+      name: 'Gain',
+      level: 0,
+      min: -5,
+      max: 5
     }]
   }, {
     name: 'Chorus',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Speed',
+      level: 2,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 50,
+      min: 0,
       max: 100
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Flanger',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
-      max: 100
+      name: 'Speed',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Feedback',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Delay Time',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Tremolo',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
-      max: 100
+      name: 'Speed',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Depth',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Rise Time',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Delay',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Delay',
+      level: 50,
+      min: 0,
       max: 100
+    }, {
+      name: 'Feedback',
+      level: 50,
+      min: 0,
+      max: 100
+    }, {
+      name: 'Type',
+      level: 0,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }, {
     name: 'Reverb',
     active: false,
     settings: [{
-      name: 'Level',
-      level: 0,
+      name: 'Decay',
+      level: 50,
+      min: 0,
       max: 100
+    }, {
+      name: 'Tone',
+      level: 5,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Type',
+      level: 0,
+      min: 0,
+      max: 10
+    }, {
+      name: 'Level',
+      level: 5,
+      min: 0,
+      max: 10
     }]
   }
 ];
 
 let ProcessorState = {
-  outputLevel: 50,
   editing: false,
-  activeFx: {
-    name: 'Drive',
-    active: false,
-    settings: [{
-      name: 'Level',
-      level: 0,
-      max: 100
-    }]
-  },
-  bankName: 'A01',
-  patchName: 'Evil Tone',
-  effects: effects,
+  activeBank: 0,
+  activePatch: 0,
   banks: [
     {
       code: 'A',
       patches: [{
         patchName: 'Evil Tone',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Driver',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Mild Solo',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }]
     }, {
       code: 'B',
       patches: [{
         patchName: 'Blues',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Crunch',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Bonamassa',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }]
     }, {
       code: 'C',
       patches: [{
         patchName: 'Floyd',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Class Rock',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }, {
         patchName: 'Sweet Child',
-        effects: effects,
+        effects: [
+          {
+            name: 'Drive',
+            active: false,
+            settings: [{
+              name: 'Overdrive',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Boost',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            },]
+          }, {
+            name: 'Comp.',
+            active: false,
+            settings: [{
+              name: 'Threshold',
+              level: -20,
+              min: -40,
+              max: 0
+            }, {
+              name: 'Ratio',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Attack',
+              level: 3,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Release',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'EQ',
+            active: false,
+            settings: [{
+              name: 'Treble',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Mids',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Bass',
+              level: 0,
+              min: -5,
+              max: 5
+            }, {
+              name: 'Gain',
+              level: 0,
+              min: -5,
+              max: 5
+            }]
+          }, {
+            name: 'Chorus',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 2,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Flanger',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Feedback',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Delay Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Tremolo',
+            active: false,
+            settings: [{
+              name: 'Speed',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Depth',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Rise Time',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Delay',
+            active: false,
+            settings: [{
+              name: 'Delay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Feedback',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }, {
+            name: 'Reverb',
+            active: false,
+            settings: [{
+              name: 'Decay',
+              level: 50,
+              min: 0,
+              max: 100
+            }, {
+              name: 'Tone',
+              level: 5,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Type',
+              level: 0,
+              min: 0,
+              max: 10
+            }, {
+              name: 'Level',
+              level: 5,
+              min: 0,
+              max: 10
+            }]
+          }
+        ],
         outputLevel: 50
       }]
     },
@@ -144,6 +1995,5 @@ let ProcessorState = {
 };
 
 module.exports = {
-  ProcessorState: ProcessorState,
-  effects: effects
+  ProcessorState: ProcessorState
 };

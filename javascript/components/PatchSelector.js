@@ -17,19 +17,19 @@ class PatchSelector extends React.Component {
         <ClickButton
           title="1"
           icon={false}
-          active={false}
+          active={this.props.activeId === 0 ? true : false}
           showIndicator={true}
           onClick={this.props.selectPatch.bind(null, 0)} />
         <ClickButton
           title="2"
           icon={false}
-          active={false}
+          active={this.props.activeId === 1 ? true : false}
           showIndicator={true}
           onClick={this.props.selectPatch.bind(null, 1)} />
         <ClickButton
           title="3"
           icon={false}
-          active={false}
+          active={this.props.activeId === 2 ? true : false}
           showIndicator={true}
           onClick={this.props.selectPatch.bind(null, 2)} />
       </div>
