@@ -195,9 +195,11 @@ let effects = [
 ];
 
 let ProcessorState = {
+  loading: true,
   editing: false,
   activeBank: 0,
   activePatch: 0,
+  outputLevel: 0,
   banks: [
     {
       code: 'A',
