@@ -1,4 +1,5 @@
 import React from 'react';
+let reactMixin = require('react-mixin');
 
 import Display from '../components/Display';
 import OutputLevel from '../components/OutputLevel';
@@ -31,6 +32,21 @@ class ProcessorContainer extends React.Component {
     this.state.patchName = this.state.banks[this.state.activeBank].patches[this.state.activePatch].patchName;
     this.state.activeFx = this.state.banks[this.state.activeBank].patches[this.state.activePatch].effects[0];
     this.state.effects = this.state.banks[this.state.activeBank].patches[this.state.activePatch].effects;
+
+    const firebaseRef = firebase.database().ref("banks");
+    firebaseRef.once("value").then((snapshot) => {
+      this.setState({
+        "loading": false,
+        "banks": snapshot.val()
+      });
+      this.state.outputLevel = this.state.banks[this.state.activeBank].patches[this.state.activePatch].outputLevel;
+      this.state.bankName = this.state.banks[this.state.activeBank].code + this.get2DigitString(this.state.activePatch + 1);
+      this.state.patchName = this.state.banks[this.state.activeBank].patches[this.state.activePatch].patchName;
+      this.state.activeFx = this.state.banks[this.state.activeBank].patches[this.state.activePatch].effects[0];
+      this.state.effects = this.state.banks[this.state.activeBank].patches[this.state.activePatch].effects;
+      this.forceUpdate();
+      this.bindAsArray(firebaseRef, "banks");
+    });
   }
   get2DigitString(num) {
     num = num.toString();
@@ -43,10 +59,15 @@ class ProcessorContainer extends React.Component {
   }
   savePatch() {
     if (this.state.editing) {
+      const ref = firebase.database().ref("banks/" +
+        this.state.activeBank + "/patches/" + this.state.activePatch);
+      ref.set({
+        "effects": this.state.effects,
+        "outputLevel": this.state.outputLevel,
+        "patchName": this.state.patchName
+      });
       this.toggleEdit();
     }
-    // Call API here and update state in DB
-    console.log('Saved.');
   }
   toggleEffect(effect, event) {
     if (this.state.activeFx.name === effect.name) { // Same as that on Display
@@ -161,6 +182,7 @@ class ProcessorContainer extends React.Component {
                   onSave={this.savePatch} />
               </div>
               <Display
+                loading={this.state.loading}
                 bank={this.state.bankName}
                 patch={this.state.patchName}
                 fx={this.state.activeFx} />
@@ -190,5 +212,7 @@ class ProcessorContainer extends React.Component {
     );
   }
 }
+
+reactMixin(ProcessorContainer.prototype, ReactFireMixin);
 
 export default ProcessorContainer;
