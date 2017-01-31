@@ -1,16 +1,16 @@
 module.exports = {
   entry: './javascript/main.js',
   output: {
-    path: './build/',
+    path: '/build',
     filename: './main.js'
   },
   // watch: true,
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel'
       },
       {
         test: /\.scss$/,
