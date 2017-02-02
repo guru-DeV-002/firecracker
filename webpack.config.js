@@ -1,7 +1,7 @@
 module.exports = {
   entry: './javascript/main.js',
   output: {
-    path: '/build',
+    path: 'build',
     filename: './main.js'
   },
   // watch: true,
@@ -10,12 +10,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: 'style!css!sass?sourceMap' // SCSS->CSS->Styles (Right to Left)
+        loader: 'style-loader!css-loader!sass-loader?sourceMap' // SCSS->CSS->Styles (Right to Left)
       }
     ]
   }
